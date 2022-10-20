@@ -20,9 +20,8 @@ echo 192.168.33.199 server.chef-vm | sudo tee -a /etc/hosts
 Add chef-server certificates
 ````
 knife ssl fetch
-knife supermarket install mysql
-knife cookbook upload mysql --include-dependencies
-knife cookbook upload my-mysql --cookbook-path ./cookbooks
+knife supermarket install mysql --cookbook-path ./cookbooks
+knife cookbook upload my-mysql --cookbook-path ./cookbooks --include-dependencies
 knife bootstrap 192.168.33.100 \
     -P vagrant \
     -U vagrant \
