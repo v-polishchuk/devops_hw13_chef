@@ -15,7 +15,7 @@ Copy `./certs/USERNAME.pem` key file to `~/.chef/USERNAME.pem`
 
 add `$chef_server_ip $chef_server_domain` to `/etc/hosts`
 ````
-echo 192.168.33.199 server.chef-vm | sudo tee -a /etc/hosts
+sudo echo 192.168.33.199 server.chef-vm | sudo tee -a /etc/hosts
 ````
 Add chef-server certificates
 ````
@@ -34,4 +34,10 @@ knife bootstrap 192.168.33.100 \
 ````
 vagrant ssh chef_node
 service mysql status
+````
+
+### Uninstall
+````
+vagrant destroy
+sudo sed -i '/192.168.33.199 server.chef-vm/d' /etc/hosts
 ````
